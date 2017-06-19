@@ -1,0 +1,24 @@
+{
+  "name": "swconversation",
+  "version": "0.0.1",
+  "description": "Robo para responder duvidas de Star Wars",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "keywords": [
+    "watson",
+    "conversation",
+    "robo",
+    "nodejs",
+    "expressjs"
+  ],
+  "author": "Erik Andersen Neto",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "watson-developer-cloud": "^2.32.1"
+  }
+}
