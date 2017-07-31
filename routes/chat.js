@@ -19,7 +19,8 @@ router.get('/mensagem/:mensagem', (req, res) => {
             res.send(err);
         }
         else {
-            res.send({ 'resposta': resposta.output.text[0] ,'context': resposta.context});
+            context = resposta.context;
+            res.send(JSON.stringify([{'text': resposta.output.text[0]}]));
         }
 
     })    
