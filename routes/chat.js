@@ -9,7 +9,6 @@ router.get('/', (req, res) => {
 });
 
 router.get('/mensagem/:mensagem', (req, res) => {
-    console.dir(req.body);
     wcs.message({
         'texto' : req.params.mensagem,
         'contexto': context
