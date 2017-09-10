@@ -2,47 +2,9 @@
 
 <head>
     <script src="/js/jquery-3.2.1.min.js"></script>
-    <script>
-        var nome;
-        var context;
-        $(document).ready(function () {
-            $(window).keydown(function (event) {
-                if (event.keyCode == 13) {
-                    event.preventDefault();
-                    if ($('#inputChat').val() !== '')
-                        $("#btnChat").click();
-                    return false;
-                }
-            });
-            $("#formChat").hide();
-            $("#btnNome").click(function () {
-                $("#formNome").hide();
-                $("#formChat").show();
-                nome = $('#inputNome').val();
-                context = { nome: nome }
-                sendMessage('');
-            });
-            $("#btnChat").click(function () {
-                $('#logChat').append('<p>' + nome + ': ' + $('#inputChat').val());
-                sendMessage($('#inputChat').val());
-            });
-            function sendMessage(mensagem){
-                $.post('/chat/mensagem',
-                    {
-                        mensagem: mensagem,
-                        context: JSON.stringify(context)
-                    },
-                    function (data) {
-                        context = data.context;
-                        $('#logChat').append('<p>Watson: ' + data.resposta);
-                    }
-                );
-                $('#inputChat').val('');                
-            }
-        });
-    </script>
+    <script src="/js/recorder.js"></script>
+    <script src="/js/app.js"></script>
 </head>
-
 <body>
     <h1>Bem vindo à página de Chat sobre Star Wars</h1>
     <form id="formNome">
@@ -55,6 +17,7 @@
             <p>
                 <input type="text" id="inputChat">
                 <button type="button" id="btnChat">Enviar</button>
+                <button type="button" id="btnAudio">Iniciar Gravação</button>
                 <h2>Conversa</h2>
                 <div id="logChat"></div>
     </form>
