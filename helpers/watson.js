@@ -14,7 +14,6 @@ exports.message = (mensagem, callback) => {
         input: { 'text': mensagem.texto },
         context: mensagem.contexto
     }, function (err, response) {
-        console.dir(response);
         if (err) {
             callback(err, null);
         }
